@@ -57,6 +57,13 @@ let package = Package(
                 .product(name: "GRPCProtobuf", package: "grpc-swift-protobuf"),
             ]
         ),
+        .target(
+            name: "ProjectionBuilder",
+            dependencies: [
+                "KurrentDB",
+                .product(name: "Logging", package: "swift-log"),
+            ]
+        ),
         .testTarget(
             name: "KurrentCoreTests",
             dependencies: [
@@ -118,6 +125,20 @@ let package = Package(
             resources: [
                 .copy("Resources/ca.crt"),
                 .copy("Resources/multiple-events.json"),
+            ],
+            swiftSettings: [
+                .unsafeFlags([
+                    "-Xfrontend",
+                    "-warn-long-function-bodies=100",
+                    "-Xfrontend",
+                    "-warn-long-expression-type-checking=100"
+                ]),
+            ]
+        ),
+        .testTarget(
+            name: "ProjectionBuilderTests",
+            dependencies: [
+                "ProjectionBuilder",
             ],
             swiftSettings: [
                 .unsafeFlags([
