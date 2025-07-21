@@ -45,7 +45,7 @@ extension Projections {
 }
 
 extension Projections.Disable {
-    public struct Options: EventStoreOptions {
+    public struct Options: KurrentUsecaseOptions {
         package typealias UnderlyingMessage = UnderlyingRequest.Options
 
         var writeCheckpoint: Bool

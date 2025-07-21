@@ -49,7 +49,7 @@ extension Projections {
 // MARK: - The Options of Continuous Create.
 
 extension Projections.ContinuousCreate {
-    public struct Options: EventStoreOptions {
+    public struct Options: KurrentUsecaseOptions {
         package typealias UnderlyingMessage = UnderlyingRequest.Options
 
         public private(set) var emitEnabled: Bool

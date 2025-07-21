@@ -45,7 +45,7 @@ extension Projections {
 }
 
 extension Projections.Enable {
-    public struct Options: EventStoreOptions {
+    public struct Options: KurrentUsecaseOptions {
         package typealias UnderlyingMessage = UnderlyingRequest.Options
 
         public init() {}
